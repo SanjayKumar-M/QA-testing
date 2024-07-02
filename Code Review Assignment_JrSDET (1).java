@@ -1,10 +1,8 @@
 package com.org.happyfox;
-
 import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
 import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -110,7 +108,7 @@ public class PagesforAutomationAssignment {
     static class BasePage {
         protected WebDriver driver;
 
-        public BasePage(WebDriver driver) {
+        public BasePage(WebDriver driver) {  
             this.driver = driver;
         }
     }
@@ -126,6 +124,7 @@ public class PagesforAutomationAssignment {
             driver.findElement(By.id("password")).sendKeys(password);
             driver.findElement(By.id("loginButton")).click();
         }
+
 
         public void forgotPassword() {
             driver.findElement(By.linkText("Forgot password?")).click();

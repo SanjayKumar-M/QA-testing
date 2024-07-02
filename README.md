@@ -1,21 +1,25 @@
-# QA-testing
+# QA-testing-for-Python
 
 Name: Sanjay Kumar M
 Role: SDET Intern
 
 Bugs found:
 
-1. The code didn't followed Page Object Model.
+1. Absolute paths can lead to test failures if the UI structure changes. Use relative paths for better stability.
+ # Line 22
+driver.find_element(By.XPATH, "/html/body/div[3]/div/section/section/div/header/button").click()
+# Line 60
+driver.find_element(By.XPATH, "/html[1]/body[1]/div[3]/div[1]/section[1]/section[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/table[1]/tbody[1]/tr[9]/td[2]").click()
+# Line 67
+driver.find_element(By.XPATH, "/html[1]/body[1]/div[3]/div[1]/header[1]/div[2]/nav[1]/div[7]/div[1]/div[1]").click()
 
-2. The WebDriver session opened by FirefoxDriver is not closed properly at the end of the test case. This could lead to resource leaks:
-WebDriver driver = new FirefoxDriver();
+2. Static waits are not efficient. Use dynamic waits like WebDriverWait to handle conditions properly.
 
-3.  There is a nested class PagesforAutomationAssignment defined inside the Testcase101 class, which is not syntactically correct and will result in a compilation error:
-      public class PagesforAutomationAssignment {
-    public static void main(String[] args) {
-        // Code
-    }
-}
-This class should be defined outside the Testcase101 class.
+4. Initializing the driver as Chrome() limits the tests to Chrome. Use the WebDriver interface for flexibility.   # Line 77
+driver = webdriver.Chrome()
 
-4.  Thread.sleep(milliSeonds) on lines 50, 56, 70, and 82 is a static wait that should not be used. Alternatively, depending on the wait circumstances, we can employ dynamic waits (implicit, explicit, fluorescent, etc.).
+5. Raising a general Exception is not informative. Use assertions to validate conditions.
+# Line 105
+raise Exception("Not on the home page")
+
+
