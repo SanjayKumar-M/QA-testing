@@ -46,6 +46,9 @@ public class Testcase101 {
        
         WebElement secondElement = driver.findElement(By.xpath("//a[@id='second-link']"));
         secondElement.click();
+
+//Thread.sleep(milliSeonds) on lines 50, 56, 70, and 82 is a static wait that should not be used. Alternatively, depending on the wait circumstances, we can employ dynamic waits (implicit, explicit, fluorescent, etc.).
+
 	
 		driver.findElement(By.tagName("textarea")).sendKeys("Status when a new ticket is created in HappyFox");
 		WebElement addCreate = driver.findElement(By.xpath("//button[@class ='hf-entity-footer_primary hf-primary-action ember-view']"));
