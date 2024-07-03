@@ -46,10 +46,7 @@ public class Testcase101 {
        
         WebElement secondElement = driver.findElement(By.xpath("//a[@id='second-link']"));
         secondElement.click();
-        
-  //Line number 50,56,70,82 contains Thread.sleep(milliSeonds) which is a static wait and not a good practice to follow. 
-  //Instead we can use dynamic waits (implicit,Explicit,Fluent..) based on the conditions for the waits.
-		
+	
 		driver.findElement(By.tagName("textarea")).sendKeys("Status when a new ticket is created in HappyFox");
 		WebElement addCreate = driver.findElement(By.xpath("//button[@class ='hf-entity-footer_primary hf-primary-action ember-view']"));
 	      addCreate.click();
@@ -136,8 +133,6 @@ public class PagesforAutomationAssignment {
         public HomePage(WebDriver driver) {
             super(driver);
         }
-	    //Line number 140 is throwing an IllegalStateException for validating the current page in broswer. IllegalStateException is generally for an errored driver, here the driver is still active and properly performing the actions. 
-	    //If the current url is not as expected we can simply write an "Assert" statement to validate the test case.
 
         public void verifyHomePage() {
             if (!driver.getCurrentUrl().equals("https://www.happyfox.com/home")) {
