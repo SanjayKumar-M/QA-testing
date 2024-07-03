@@ -56,7 +56,8 @@ public class Testcase101 {
 	      WebElement moveTo = driver.findElement(By.xpath("//td[@class ='lt-cell align-center hf-mod-no-padding ember-view']"));
 	      action.moveToElement(moveTo).build().perform();
 	      moveTo.click();
-	     
+//Thread.sleep(milliSeonds) on lines 50, 56, 70, and 82 is a static wait that should not be used. Alternatively, depending on the wait circumstances, we can employ dynamic waits (implicit, explicit, fluorescent, etc.).
+		     
 	      Thread.sleep(9000);
 	      
 	      WebElement issue = driver.findElement(By.xpath("//div[contains(text(),'Issue Created')]"));
